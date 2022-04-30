@@ -17,10 +17,13 @@ from unicodedata import name
 from django.contrib import admin
 from django.urls import path
 from main.views import *
+from homework.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="home"),
     path("test/", test, name="test"),
-    path("test2/", second,)
+    path("test2/", second,),
+    path('homework', homework,),
+    path('homework2', homework2,),
 ]
