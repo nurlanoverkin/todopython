@@ -13,4 +13,4 @@ def second(request):
     return HttpResponse ('test 2 page')
 
 def homework(request):
-    return render(request, "homework.html")
+    return render(request, "meeting.html")
