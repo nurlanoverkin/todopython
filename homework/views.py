@@ -12,3 +12,4 @@ def homework2 (request):
 def meeting(request):
     meet_list = ToMeet.objects.all()
     return render(request, "meeting.html", {"meet_list":meet_list})
+

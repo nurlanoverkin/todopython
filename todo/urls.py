@@ -30,5 +30,6 @@ urlpatterns = [
     path('homework', homework,),
     path('homework2', homework2,),
     path('meeting',meeting,),
+    path("add-todo/",add_todo, name="add-todo"),
 ]   +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
