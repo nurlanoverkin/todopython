@@ -13,5 +13,9 @@
         }
     </style>
     <h2>это тестовая страница</h2>
+    <h2>Ver 2.0</h2>
+    {% for todo in todo_list %}
+        <h3>{{ todo.text}} - {{ todo.created_at }} </h3>
+    {% endfor %}
 </body>
 </html>
