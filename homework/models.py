@@ -18,6 +18,6 @@ class ToMeet(models.Model):
 
 class Habits(models.Model):
         name = models.CharField(max_length=100)
-        done_for_today = models.IntegerField(default=0)
+        done_for_today = models.BooleanField(default=False)
         important = models.BooleanField(default=False)
         comment = models.CharField(max_length=100)

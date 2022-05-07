@@ -5,29 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meeting Nurlanov Erkin</title>
-    <link rel="stylesheet" href="{% static 'static/styles/index.css' %}">
-    <link rel="stylesheet" href="{% static 'static/styles/chekbox.css'%}>
-    <link rel="shortcut icon" href="{% static 'icons/delete' %}" type="image/png"/>
+    <title>Hubits Nurlanov Erkin</title>
+    <link rel="stylesheet" href="{% static '/styles/indexForHabits.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/chekbox.css'%}>
+    <link rel="shortcut icon" href="{% static 'static/icons/delete' %}" type="image/png"/>
 </head>
 <body>
     <section>
         <div class="create_container">
-            <form action="{% url 'add-meet' %}" method="POST">
+            <form action="{% url 'add-habits' %}" method="POST">
                 {% csrf_token %}
                 <input
                     class="create_input"
                     style="margin: 5px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
                     type="text"
-                    placeholder="Введите имя"
-                    name = "meet_text"
-                />
-                <input
-                    class="create_input"
-                    style="margin: 5px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                    type="text"
-                    placeholder="Введите номер телефона"
-                    name = "phone"
+                    placeholder="Введите привычку"
+                    name = "habit_text"
                 />
                 <input
                     class="create_input"
@@ -41,18 +34,18 @@
         </div>
 
         <div class="todo_container">
-            {% for tomeet in meet_list %}
+            {% for habits in habits_list %}
             <div class="todo_item">
                 <div class="todo_item_header">   
                     <label class="checkbox_container">
-                        <input  type="checkbox"/><h4 class="text"> {{ tomeet.persone }} - {{ tomeet.phone_number}} </h4>  <br>
-                         <p> {{tomeet.comment}} </p> 
+                        <input  type="checkbox"/><h4 class="text"> {{ habits.name }} </h4>  <br>
+                         <p> {{ habits.comment}} </p> 
                         <span class="checkmark"></span>
                     </label>
                      
                         <div>
                             <div class="todo_item_footer">
-                                <p> {{ tomeet.date_of_meeting}} </p>
+                                <p> </p>
                                
                                 <div class="action_buttons">
                                     <img src="{% static './icons/unmarked.png'%} ">

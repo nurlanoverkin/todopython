@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, HttpResponse, redirect
 from. models import ToDo
 
+
 def homepage(request):
     return render(request,"index.html")
 
