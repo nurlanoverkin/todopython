@@ -3,7 +3,7 @@ from xml.etree.ElementTree import Comment
 from django.http import HttpResponse
 from django.shortcuts import render, HttpResponse, redirect
 from main.models import ToDo
-from main.views import test
+from main.views import *
 from .models import *
 
 def homework(request):
@@ -42,3 +42,18 @@ def add_habits(request):
     habits = Habits(name=text, comment=comment1)
     habits.save()
     return redirect(habits)
+
+def add_todo(request):
+    form = request.POST
+    text = form["todo_text"]
+    todo = ToDo(text=text)
+    todo.save()
+    return redirect(test)
+
+
+
+
+def delete_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)
