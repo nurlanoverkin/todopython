@@ -76,21 +76,6 @@ def delete_tomeet(request, id):
     todo.delete()
     return redirect(meeting)
 
-
-
-# def mark_tomeet(request, id):
-#     todo = ToMeet.objects.get(id=id)
-#     ToMeet.is_favorite = True
-#     todo.save()
-#     return redirect(meeting)
-
-
-# def unmark_tomeet(request, id):
-#     todo = ToMeet.objects.get(id=id)
-#     ToMeet.is_favorite = False
-#     todo.save()
-#     return redirect(meeting)
-
 def mark_to_meet(request, id):
     tomeet = ToMeet.objects.get(id=id)
     tomeet.is_favorite = False
@@ -102,3 +87,9 @@ def unmark_to_meet(request, id):
     tomeet.is_favorite = True
     tomeet.save()
     return redirect(meeting)
+
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = not todo.is_closed
+    todo.save()
+    return redirect(test)

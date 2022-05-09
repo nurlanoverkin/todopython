@@ -82,7 +82,8 @@ section{
     color: #757575;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column; 
+    flex-direction: column;
+    
 }
 
 .todo_item.done h4, .todo_item.done p, .todo_item.done span{
@@ -101,7 +102,13 @@ section{
 .todo_item_header h4{  
     font-size: 18px;
     font-family: sans-serif;
+
 }
+
+.todo_item_header h4 a{
+    text-decoration: none;
+}
+
 .todo_item_footer{
     display: flex;
     justify-content: space-between;

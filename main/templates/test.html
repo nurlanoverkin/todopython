@@ -24,39 +24,44 @@
                 <button class="create_button">Добавить</button>
             </form>
         </div>
-        <div class="todo_container">
+            <div class="todo_container">
 
-            {% for todo in todo_list %}
-            <div class="todo_item
-                {% if todo.is_favorite %}
-                     marked
-                {% endif %}
-            ">
-                <div class="todo_item_header">   
-                    <label class="checkbox_container">
-                        <input type="checkbox"/><h4 class="text"> {{ todo.text }} </h4>   
-                        <span class="checkmark"></span>
-                    </label>
-                     
-                        <div>
-                            <div class="todo_item_footer">
-                                <p> {{ todo.created_at}} </p>
-                                <div class="action_buttons">
-                                    {% if todo.is_favorite %}
-                                        <a href="{% url 'unmark-todo' todo.id %} "><img src="{% static './icons/marked.png'%} "></a>
-                                    {% else %}
-                                        <a href="{% url 'mark-todo' todo.id %} "><img src="{% static './icons/unmarked.png'%} "></a>
-                                    {% endif %}
+                    {% for todo in todo_list %}
+                    <div class="todo_item
+                        {% if todo.is_favorite %}
+                            marked
+                        {% elif todo.is_closed %}
+                            done
+                        {% endif %}
+                    ">
+                    <div class="todo_item_header">   
+                        <label class="checkbox_container">
+                            <input type="checkbox"
+                                {% if todo.is_closed  %}
+                                    checked
+                                {% endif %}
+                            />
+                            <span class="checkmark"></span>
+                        </label>
+                        <h4><a href="{% url 'close-todo' todo.id %}">{{ todo.text }}</a></h4>
+                    <div>
+                    <div class="todo_item_footer">
+                        <p> {{ todo.created_at}} </p>
+                        <div class="action_buttons">
+                            {% if todo.is_favorite %}
+                                <a href="{% url 'unmark-todo' todo.id %} "><img src="{% static './icons/marked.png'%} "></a>
+                            {% else %}
+                                <a href="{% url 'mark-todo' todo.id %} "><img src="{% static './icons/unmarked.png'%} "></a>
+                            {% endif %}
 
-                                    <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %} "></a>
-                                </div>
-                            </div>
+                            <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %} "></a>
                         </div>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
-
+        {% endfor %}
+    </div>
     </section>
 </body>
 </html>
