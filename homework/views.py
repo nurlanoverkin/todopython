@@ -93,3 +93,11 @@ def close_todo(request, id):
     todo.is_closed = not todo.is_closed
     todo.save()
     return redirect(test)
+
+def close_tomeet(request, id):
+    todo = ToMeet.objects.get(id=id)
+    todo.is_closed = not todo.is_closed
+    todo.save()
+    return redirect(meeting)
+
+    

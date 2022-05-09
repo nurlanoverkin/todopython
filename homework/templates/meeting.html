@@ -45,11 +45,15 @@
             <div class="todo_item
               {% if tomeet.is_favorite %}
                     marked
-              {% endif %} 
+              {% elif tomeet.is_closed %}
+                    done
+             {% endif %}
             ">
                 <div class="todo_item_header">   
                     <label class="checkbox_container">
-                        <input  type="checkbox"/><h4 class="text"> {{ tomeet.persone }} - {{ tomeet.phone_number}} </h4>  <br>
+                        <input  type="checkbox"/>
+                        <h4> <a href="{% url 'close-tomeet' tomeet.id %}" class="text" >{{ tomeet.persone }} 
+                            - {{ tomeet.phone_number}} </a> </h4> <br>
                          <p> {{ tomeet.comment }} </p> 
                         <span class="checkmark"></span>
                     </label>
