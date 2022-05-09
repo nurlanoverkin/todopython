@@ -25,3 +25,24 @@ def add_todo(request):
     todo = ToDo(text=text)
     todo.save()
     return redirect(test)
+
+
+# def delete_tomeet(request, id):
+#     todo = ToMeet.objects.get(id=id)
+#     todo.delete()
+#     return redirect(meeting)
+
+
+
+# def mark_tomeet(request, id):
+#     todo = ToMeet.objects.get(id=id)
+#     todo.is_favorite = True
+#     todo.save()
+#     return redirect(meeting)
+
+
+# def unmark_tomeet(request, id):
+#     todo = ToMeet.objects.get(id=id)
+#     todo.is_favorite = False
+#     todo.save()
+#     return redirect(meeting)
